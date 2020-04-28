@@ -33,19 +33,18 @@ describe('HeaderComponent', () => {
     expect(headComponent.querySelector('h1').textContent).toContain('Shopping App');
   })
 
-  it('should have anchor tag equal to products',()=>{
+  it('should have anchor tag equal to product',()=>{
     const fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();
-    const products = fixture.debugElement.query(By.css('.navbarContent1')).nativeElement;
-    expect(products.innerHTML).toBe('Products');  
+    const headComponent = fixture.nativeElement;
+    expect(headComponent.querySelectorAll('a')[0].textContent).toContain('Products');
   }) 
 
-  it('should have anchor tag equal to mycart',()=>{
+   it('should have anchor tag equal to MyCart',()=>{
     const fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();
-    const MyCart = fixture.debugElement.query(By.css('.navbarContent2')).nativeElement;
-    expect(MyCart.innerHTML).toBe('MyCart');  
+    const headComponent = fixture.nativeElement;
+    expect(headComponent.querySelectorAll('a')[1].textContent).toContain('MyCart');
   })  
-   
 
 });

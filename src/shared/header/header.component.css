@@ -19,11 +19,7 @@
     display: flex;
     align-items: center;
 }
-.navbarContent1{
-    color:black;
-    margin: 10px;
-}
-.navbarContent2{
+.navbarContent{
     color:black;
     margin: 10px;
 }
