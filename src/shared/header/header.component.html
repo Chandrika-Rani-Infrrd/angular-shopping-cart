@@ -4,8 +4,11 @@
             <h1>Shopping App</h1>
         </div>
         <div class="navbarList">
-            <a class="navbarContent">Products</a>
-            <a class="navbarContent">MyCart</a>
+            <a [routerLink]="['products']" class="navbarContent">Products</a>
+            <a [routerLink]="['mycart']" class="navbarContent">MyCart</a>
        </div>
     </nav>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
 </header>

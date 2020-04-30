@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement} from '@angular/core';
-import { By } from '@angular/platform-browser';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -47,4 +46,8 @@ describe('HeaderComponent', () => {
     expect(headComponent.querySelectorAll('a')[1].textContent).toContain('MyCart');
   })  
 
-});
+ 
+})
+
+
+
