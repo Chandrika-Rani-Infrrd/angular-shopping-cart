@@ -6,16 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '../shared/header/header.component';
 import { ProductsComponent } from './products/products.component';
-import { MycartComponent } from './mycart/mycart.component';
-import { ProductlistComponent } from './productlist/productlist.component';
+import { MyCartComponent } from './mycart/my-cart.component';
+import { ProductListComponent } from './productlist/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductsComponent,
-    MycartComponent,
-    ProductlistComponent
+    MyCartComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
