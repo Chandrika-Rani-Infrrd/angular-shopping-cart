@@ -1,1 +1,11 @@
-<p>products works!</p>
+
+<h1 class="products">Products</h1>
+<div class="productsContainer">
+<ul class="productList" *ngFor="let product of products">
+    <li class="productContent">{{product.name}}</li>
+    <li class="productContent">{{product.price}}</li>
+    <button class="addTOCartButton" (click)="onClick()">
+        <b>Add To MyCart</b>
+    </button>
+</ul>
+</div>
