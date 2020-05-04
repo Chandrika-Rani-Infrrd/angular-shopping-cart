@@ -12,6 +12,7 @@ describe('AppRoutingModelTest',()=>{
 beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([
+        {path:'',redirectTo:'products',pathMatch:'full'},
         {path:'products',component:ProductsComponent},
         {path:'mycart',component:MyCartComponent}
       ])],
@@ -38,6 +39,16 @@ beforeEach(() => {
   router.navigate(['mycart']).then(() => {
     expect(location.path()).toEqual('/mycart'); 
     }); 
+})))
+
+it("default link navigate to ProductsComponent",
+async(inject([Router, Location], (router: Router, location: Location) => {
+let fixture = TestBed.createComponent(HeaderComponent);
+fixture.detectChanges(); 
+
+router.navigate(['']).then(() => {
+  expect(location.path()).toBe('/products'); 
+  }); 
 })))
 
  
