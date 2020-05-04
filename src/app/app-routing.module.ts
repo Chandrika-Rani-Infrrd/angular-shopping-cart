@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
+
 import { MyCartComponent } from './mycart/my-cart.component';
 import { ProductListComponent } from './productlist/product-list.component';
 
 
 export const routes: Routes = [
-  {path:'',redirectTo:'products',pathMatch:'full'},
-  {path:'products',component:ProductsComponent},
+  {path:'',redirectTo:'product-list',pathMatch:'full'},
+  {path:'product-list',component:ProductListComponent},
   {path:'mycart',component:MyCartComponent},
   {path:'products/:id',component:ProductListComponent},
 ];
