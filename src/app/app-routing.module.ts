@@ -6,9 +6,10 @@ import { ProductListComponent } from './productlist/product-list.component';
 
 
 export const routes: Routes = [
+  {path:'',redirectTo:'products',pathMatch:'full'},
   {path:'products',component:ProductsComponent},
   {path:'mycart',component:MyCartComponent},
-  {path:'products/:id',component:ProductListComponent}
+  {path:'products/:id',component:ProductListComponent},
 ];
 
 @NgModule({
