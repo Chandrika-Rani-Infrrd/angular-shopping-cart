@@ -24,14 +24,6 @@ describe('ProductsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("does products name match to its price",()=>{
-    const [first,second]=component.products;
-    expect(first.name).toEqual("Nike Shoes");
-    expect(first.price).toEqual(8000);
-    expect(second.name).toEqual("college Bag");
-    expect(second.price).toEqual(450); 
-  })
-
   it("is onclick invoked when click button is clicked",()=>{
     spyOn(component, 'onClick');
     let button =  fixture.debugElement.query(By.css('button'));
