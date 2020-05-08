@@ -46,7 +46,7 @@ describe('HeaderComponent', () => {
     expect(headComponent.querySelectorAll('a')[1].textContent).toContain('MyCart');
   })  
 
- 
+
 })
 
 

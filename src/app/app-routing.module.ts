@@ -4,12 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { MyCartComponent } from './mycart/my-cart.component';
 import { ProductListComponent } from './productlist/product-list.component';
 
-
 export const routes: Routes = [
   {path:'',redirectTo:'product-list',pathMatch:'full'},
   {path:'product-list',component:ProductListComponent},
   {path:'mycart',component:MyCartComponent},
-  {path:'products/:id',component:ProductListComponent},
+  {path:'mycart/:name',component:MyCartComponent},
 ];
 
 @NgModule({

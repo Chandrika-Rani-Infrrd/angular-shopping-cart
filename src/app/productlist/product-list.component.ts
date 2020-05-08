@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient } from '@angular/common/http';
+import { ProductsService } from '../products/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,17 +9,12 @@ import {HttpClient } from '@angular/common/http';
 export class ProductListComponent implements OnInit {
   public products:any=[];
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private productsService:ProductsService) { }
 
   ngOnInit(): void {
-    this.httpClient.get("../../assets/products.json").subscribe(item=>{
-      console.log(item);
+    this.productsService.getProducts().subscribe(item=>{
       this.products=item;
     })
-  }
-
-  onClick(){
-    console.log("add button clicked");
   }
 
 }
