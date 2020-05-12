@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { ProductsService } from '../products/products.service';
 
@@ -7,48 +7,52 @@ import { ProductsService } from '../products/products.service';
   templateUrl: './my-cart.component.html',
   styleUrls: ['./my-cart.component.css']
 })
-export class MyCartComponent implements OnInit {
+export class MyCartComponent implements OnInit,OnDestroy{
   name:string;
   productsList:any=[];
-  myCart:any=[];
   cartValues=[];
-  totalAmount:number=0;
+  totalAmount=0;
+  sum=0;
+  storeDeletedItem: any[];
+  checkDeletedItem: any;
+  deletedItemPresent: boolean;
 
   constructor(private router:Router,
               private route:ActivatedRoute,
-              private productsService:ProductsService)
-              { }
+              private productService:ProductsService){}
 
   ngOnInit(): void {
+    if(localStorage.getItem('deleteditem').length>0){
+      this.checkDeletedItem=JSON.parse(localStorage.getItem('deleteditem'));
+    }
     this.name=this.route.snapshot.paramMap.get('name');
-    this.productsService.getProducts().subscribe(item=>{
+    this.productService.getProducts().subscribe(item=>{
       this.productsList=item;
-
       this.cartValues=JSON.parse(localStorage.getItem('cartValue')) || [];
-      console.log("first",this.cartValues); 
-
-      for(let i=0;i<this.productsList.length;i++){
-        if(this.productsList[i].name===this.name && 
-          !this.cartValues.map(item=>item.name).includes(this.name)){
-            this.cartValues.push(this.productsList[i]);
-            console.log("after push",this.productsList[i]);
+      let itemPresent=this.cartValues.map((item)=>{
+        if(item.name==this.name){
+          return item.name;
+        }
+      });
+      this.productsList.map(product=>{
+        if(this.checkDeletedItem){
+          this.deletedItemPresent=this.checkDeletedItem.filter(ele=>ele.id==product.id)
+        }
+        if(product.name===this.name && !itemPresent.includes(this.name) && !this.deletedItemPresent){
+            this.cartValues.push(product);
             localStorage.setItem('cartValue',JSON.stringify(this.cartValues));
             let cart=JSON.parse(localStorage.getItem('cartValue'));
-            console.log("second",cart);         
         }
-      }           
+      })   
     })
   }
 
-  productToDelete(value){
-    console.log("item"+value);
-    this.cartValues.splice(this.cartValues.findIndex(item=>item.id==value),1);
+  productToDelete(value):void{
+    this.storeDeletedItem=this.cartValues.filter((item)=>item.id==value);
+    localStorage.setItem('deleteditem',JSON.stringify(this.storeDeletedItem));
+    let deleteditem=this.cartValues.filter((item)=>item.id!==value);
+    this.cartValues=deleteditem;
     localStorage.setItem('cartValue',JSON.stringify(this.cartValues));
-  }
-
-  total(quantity,price):number{
-    let total=(quantity*price);
-    return total;
   }
 
   increment(item):number{
@@ -61,22 +65,16 @@ export class MyCartComponent implements OnInit {
     if(item.quantity<=1)
       item.quantity=1;
     else
-       item.quantity-=1; 
+      item.quantity-=1; 
     localStorage.setItem('cartValue',JSON.stringify(this.cartValues));
     return item.quantity;
   }
-
-  sum():number{
-    let sum=0;
-    for(let i in this.cartValues){
-      let item=this.cartValues[i];
-      sum+=this.total(item.quantity,item.price);
-    }
-    return sum;
-  } 
 
   onClick(){
     this.router.navigate(['/product-list']);
   }
 
+  ngOnDestroy(){
+    localStorage.setItem('deleteditem','');
+  }
 }

@@ -10,15 +10,15 @@
             <button (click)="increment(item)" >+</button>
         </div>
         <div><b>Price : </b>{{item.price}}</div>
-        <div><b>Total Price : </b>{{total(item.quantity,item.price)}}</div>
+        <div><b>Total Price : </b>{{totalAmount|getTotalAmount:item.quantity:item.price}}</div>
     </div>  
     <div class="action">
         <button class="delete" (click)="productToDelete(item.id)">Delete</button>
-    </div>
+    </div> 
 </div> 
-<div class="total">Total Amount : {{sum()}}</div>
+<div class="total">Total Amount : {{sum|overAllTotal:cartValues}}</div>
 <button class="more-shopping-btn" (click)="onClick()">
     More Shopping
-</button>    
+</button>     
 
 

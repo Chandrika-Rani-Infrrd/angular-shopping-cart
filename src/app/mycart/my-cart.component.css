@@ -3,6 +3,7 @@
     text-align: center;
 }
 .table-body{
+    overflow-x: hidden;
     border:2px solid silver;
     width:50%;
     padding: 15px;
