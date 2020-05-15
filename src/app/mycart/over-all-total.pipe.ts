@@ -10,7 +10,11 @@ export class OverAllTotalPipe implements PipeTransform {
   }
 
   overAllTotal( products) {
-    let sum = products.reduce((acc,item) => acc + item.quantity * item.price, 0);
+    if(!products)
+    return 0;
+    else{
+    let sum = products.reduce((acc: number,item) => acc + item.quantity * item.price, 0);
     return sum;
+    }
   }
 }

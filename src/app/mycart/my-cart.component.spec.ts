@@ -11,7 +11,6 @@ import { MyCartComponent } from './my-cart.component';
 import { Router } from '@angular/router';
 import { ProductListComponent } from '../productlist/product-list.component';
 import { OverAllTotalPipe } from './over-all-total.pipe';
-import { DeleteComponent } from '../delete/delete.component';
 import { MyCartService } from './my-cart.service';
 
 describe('MycartComponent', () => {
@@ -27,7 +26,7 @@ describe('MycartComponent', () => {
         ]),
       ],
       declarations: [MyCartComponent, OverAllTotalPipe],
-      providers: [DeleteComponent,MyCartService ],
+      providers: [MyCartService ],
     }).compileComponents();
   }));
 
@@ -57,24 +56,6 @@ describe('MycartComponent', () => {
     })
   )); 
 
-   it('even when quantity is 1 or lesser than that,decrement value should be equal to 1', () => {
-    let item = { quantity: 0 };
-    const result = component.decrement(item);
-    expect(result).toBe(1);
-  });
-
-  it('does decrement works correctly', () => {
-    let item = { quantity: 2 };
-    const result = component.decrement(item);
-    expect(result).toBe(1);
-  });
-
-  it('does increment works correctly', () => {
-    let item = { quantity: 1 };
-    const result = component.increment(item);
-    expect(result).toBe(2);
-  }); 
-
    it('does delete button works', () => {
     spyOn(component, 'productToDelete');
     component.productToDelete(1);
@@ -89,11 +70,6 @@ describe('MycartComponent', () => {
   it('should have getProducts method', () => {
     const service: MyCartService = TestBed.get(MyCartService);
     expect(service.getMyCart).toBeTruthy();
-  });
-
-  it('call to delete should be created', () => {
-    const method: DeleteComponent = TestBed.get(DeleteComponent);
-    expect(method).toBeTruthy();
   });
 
 });

@@ -1,6 +1,6 @@
 <h1 class="mycart">MyCart</h1>
 
-<div class="table-body" *ngFor="let item of myCartValues">
+<div class="table-body" *ngFor="let item of cartItem">
   <div class="table-details">
     <div><b>Product Name : </b>{{ item.name }}</div>
     <div class="quantity">
@@ -19,7 +19,7 @@
   </div>
 </div>
 <div class="total">
-  Total Amount : {{ myCartValues | overAllTotal | currency: "INR" }}
+  Total Amount : {{ cartItem | overAllTotal | currency: "INR" }}
 </div>
 <button class="more-shopping-btn" (click)="onClick()">
   More Shopping

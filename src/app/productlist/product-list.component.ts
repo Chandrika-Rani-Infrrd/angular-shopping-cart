@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
   sendToService(id: number) {
     this.products.map((product) => {
       if (product.id === id ){
-        this.mycartService.setId(product);
+        this.mycartService.addTOCart(product);
       } 
     })
   }

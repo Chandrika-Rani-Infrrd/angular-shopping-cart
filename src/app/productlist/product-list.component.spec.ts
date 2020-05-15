@@ -28,7 +28,7 @@ describe('ProductlistComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([
-          { path: 'mycart/:name', component: MyCartComponent },
+          { path: 'mycart', component: MyCartComponent },
         ]),
       ],
     }).compileComponents();
@@ -57,8 +57,8 @@ describe('ProductlistComponent', () => {
       let fixture = TestBed.createComponent(ProductListComponent);
       fixture.detectChanges();
 
-      router.navigate(['mycart/:name']).then(() => {
-        expect(location.path()).toBe('/mycart/:name');
+      router.navigate(['mycart']).then(() => {
+        expect(location.path()).toBe('/mycart');
       });
     })
   ));

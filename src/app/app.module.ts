@@ -11,7 +11,6 @@ import { MyCartComponent } from './mycart/my-cart.component';
 import { ProductListComponent } from './productlist/product-list.component';
 import { OverAllTotalPipe } from './mycart/over-all-total.pipe';
 import { MyCartService } from './mycart/my-cart.service';
-import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,8 @@ import { DeleteComponent } from './delete/delete.component';
     ProductsComponent,
     MyCartComponent,
     ProductListComponent,
-    OverAllTotalPipe,
-    DeleteComponent
-    ],
+    OverAllTotalPipe
+   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule, HttpClientModule],
   providers: [ MyCartService],
   bootstrap: [AppComponent],
