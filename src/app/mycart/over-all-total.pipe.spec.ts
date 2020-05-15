@@ -6,4 +6,3 @@ describe('OverAllTotalPipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
- 

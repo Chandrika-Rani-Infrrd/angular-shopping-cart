@@ -9,8 +9,9 @@ import { HeaderComponent } from '../shared/header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { MyCartComponent } from './mycart/my-cart.component';
 import { ProductListComponent } from './productlist/product-list.component';
-import { GetTotalAmountPipe } from './mycart/get-total-amount.pipe';
 import { OverAllTotalPipe } from './mycart/over-all-total.pipe';
+import { MyCartService } from './mycart/my-cart.service';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +20,11 @@ import { OverAllTotalPipe } from './mycart/over-all-total.pipe';
     ProductsComponent,
     MyCartComponent,
     ProductListComponent,
-    GetTotalAmountPipe,
-    OverAllTotalPipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    OverAllTotalPipe,
+    DeleteComponent
+    ],
+  imports: [BrowserModule, AppRoutingModule, RouterModule, HttpClientModule],
+  providers: [ MyCartService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
