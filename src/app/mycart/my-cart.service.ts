@@ -38,6 +38,11 @@ export class MyCartService {
     return deleteProduct;
   }
 
+  updateMyCart(UpdatedData){
+    let updatedValue = JSON.parse(localStorage.getItem(this.cartValue));
+    localStorage.setItem(this.cartValue, JSON.stringify(UpdatedData));
+  }
+
   getMyCart() {
     return JSON.parse(localStorage.getItem(this.cartValue));
   }

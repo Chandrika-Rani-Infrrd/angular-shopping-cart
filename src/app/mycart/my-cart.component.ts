@@ -9,7 +9,8 @@ import { MyCartService } from './my-cart.service';
 })
 export class MyCartComponent implements OnInit {
   cartItem = [];
-  cart = 'cartValue';
+  showEdit=false;
+  productToUpdate;
 
   constructor(private router: Router, private mycartService: MyCartService) {}
 
@@ -30,6 +31,15 @@ export class MyCartComponent implements OnInit {
     if (item.quantity <= 1) item.quantity = 1;
     else item.quantity -= 1;
     this.mycartService.decrementQuantity(this.cartItem);
+  }
+
+  editModel(item){
+    this.productToUpdate=item;
+    this.showEdit=!this.showEdit;
+  }
+
+  updatedName(data){
+    this.mycartService.updateMyCart(this.cartItem);
   }
 
   onClick() {

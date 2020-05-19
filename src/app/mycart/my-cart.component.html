@@ -16,6 +16,7 @@
   </div>
   <div class="action">
     <button class="delete" (click)="productToDelete(item.id)">Delete</button>
+    <button class="edit" (click)="editModel(item)">Edit</button>
   </div>
 </div>
 <div class="total">
@@ -24,3 +25,39 @@
 <button class="more-shopping-btn" (click)="onClick()">
   More Shopping
 </button>
+
+<div *ngIf="showEdit" class="edit-model">
+  <div class="model-container">
+  <form #Edit="ngForm">
+    <div class="form-group">
+    <b>Name:</b><input
+      type="text"
+      class="form-control"
+      name="name"
+      value={{productToUpdate.name}}
+      [(ngModel)]="productToUpdate.name"
+    />
+  </div>
+  <div class="form-group">
+    <b>Quantity:</b><input
+      type="number"
+      class="form-control"
+      name="quantity"
+      value={{productToUpdate.quantity}}
+      [(ngModel)]="productToUpdate.quantity"
+    />
+  </div>
+  <div class="form-group">
+    <b>Price:</b><input
+      type="number"
+      class="form-control"
+      name="price"
+      value={{productToUpdate.price}}
+      [(ngModel)]="productToUpdate.price"
+    />
+  </div>
+  </form>
+  <button (click)="updatedName(productToUpdate)">Update</button>
+  <button (click)=editModel(productToUpdate) >Back</button>
+</div>
+</div>
