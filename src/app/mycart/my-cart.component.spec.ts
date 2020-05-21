@@ -72,4 +72,17 @@ describe('MycartComponent', () => {
     expect(service.getMyCart).toBeTruthy();
   });
 
+  it('does edit button works', () => {
+    spyOn(component, 'editModel');
+    component.editModel(1);
+    expect(component.editModel).toHaveBeenCalled();
+  });
+
+  it('does update button works', () => {
+    spyOn(component, 'updatedName');
+    component.updatedName(1);
+    expect(component.updatedName).toHaveBeenCalled();
+  });
+
+
 });

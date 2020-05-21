@@ -26,9 +26,36 @@
   margin-left: 50%;
 }
 .delete,
-.more-shopping-btn {
+.edit,
+.more-shopping-btn,
+.model-container > button {
   padding: 5px;
   font-weight: bold;
   border-radius: 10%;
-  margin: 5px;
+  margin: 8px;
+}
+
+.edit-model {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color:rgb(230, 225, 225);
+}
+.edit-model>div{
+  position: absolute;
+  border-radius: 5%;
+  top: 20%;
+  left: 30%;
+  right: 25%;
+  margin: auto;
+  background-color: white;
+}
+.form-group {
+  padding: 10px;
+  margin: 10px;
 }
