@@ -1,3 +1,4 @@
+import { LoginFormComponent } from './login-form/login-form.component';
 import { TestBed, async, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
@@ -13,20 +14,19 @@ describe('AppRoutingModelTest', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([
-          { path: '', redirectTo: 'product-list', pathMatch: 'full' },
+          {path:'',redirectTo:'login',pathMatch:"full"},
+          { path: 'login', component:LoginFormComponent },
           { path: 'product-list', component: ProductListComponent },
           { path: 'mycart', component: MyCartComponent },
         ]),
       ],
-      declarations: [ProductListComponent, MyCartComponent],
+      declarations: [ProductListComponent, MyCartComponent,LoginFormComponent],
     }).compileComponents();
   });
   it("onClick of 'product-list' navigate to ProductListComponent", async(
     inject([Router, Location], (router: Router, location: Location) => {
       let fixture = TestBed.createComponent(HeaderComponent);
       fixture.detectChanges();
-
-      fixture.debugElement.queryAll(By.css('a'))[0].nativeElement.click();
       router.navigate(['product-list']).then(() => {
         expect(location.path()).toEqual('/product-list');
       });
@@ -37,22 +37,20 @@ describe('AppRoutingModelTest', () => {
     inject([Router, Location], (router: Router, location: Location) => {
       let fixture = TestBed.createComponent(HeaderComponent);
       fixture.detectChanges();
-
-      fixture.debugElement.queryAll(By.css('a'))[1].nativeElement.click();
       router.navigate(['mycart']).then(() => {
         expect(location.path()).toEqual('/mycart');
       });
     })
   ));
 
-  it('default link navigate to ProductListComponent', async(
+  it('default link navigate to LoginFormComponent', async(
     inject([Router, Location], (router: Router, location: Location) => {
       let fixture = TestBed.createComponent(HeaderComponent);
       fixture.detectChanges();
-
       router.navigate(['']).then(() => {
-        expect(location.path()).toBe('/product-list');
+        expect(location.path()).toBe('/login');
       });
     })
   ));
+
 });

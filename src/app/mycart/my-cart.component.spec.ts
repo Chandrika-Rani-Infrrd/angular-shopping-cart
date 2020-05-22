@@ -26,7 +26,7 @@ describe('MycartComponent', () => {
         ]),
       ],
       declarations: [MyCartComponent, OverAllTotalPipe],
-      providers: [MyCartService ],
+      providers: [MyCartService],
     }).compileComponents();
   }));
 
@@ -54,14 +54,14 @@ describe('MycartComponent', () => {
         expect(location.path()).toBe('/product-list');
       });
     })
-  )); 
+  ));
 
-   it('does delete button works', () => {
+  it('does delete button works', () => {
     spyOn(component, 'productToDelete');
     component.productToDelete(1);
     expect(component.productToDelete).toHaveBeenCalled();
   });
- 
+
   it('service should be created', () => {
     const service: MyCartService = TestBed.get(MyCartService);
     expect(service).toBeTruthy();
@@ -83,6 +83,4 @@ describe('MycartComponent', () => {
     component.updatedName(1);
     expect(component.updatedName).toHaveBeenCalled();
   });
-
-
 });

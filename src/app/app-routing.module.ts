@@ -1,3 +1,4 @@
+import { LoginFormComponent } from './login-form/login-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -5,7 +6,8 @@ import { MyCartComponent } from './mycart/my-cart.component';
 import { ProductListComponent } from './productlist/product-list.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'product-list', pathMatch: 'full' },
+  {path:'',redirectTo:'login',pathMatch:"full"},
+  { path: 'login', component:LoginFormComponent },
   { path: 'product-list', component: ProductListComponent },
   { path: 'mycart', component: MyCartComponent }
 ];

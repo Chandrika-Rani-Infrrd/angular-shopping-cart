@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement} from '@angular/core';
 import { HeaderComponent } from './header.component';
@@ -9,7 +10,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      imports:[RouterTestingModule]
     })
     .compileComponents();
   }));
@@ -27,15 +29,15 @@ describe('HeaderComponent', () => {
 
   it('should have header equal to Shopping App',()=>{
     const fixture = TestBed.createComponent(HeaderComponent);
-    fixture.detectChanges();
     const headComponent = fixture.nativeElement;
+    fixture.detectChanges();
     expect(headComponent.querySelector('h1').textContent).toContain('Shopping App');
   })
 
   it('should have anchor tag equal to product',()=>{
     const fixture = TestBed.createComponent(HeaderComponent);
-    fixture.detectChanges();
     const headComponent = fixture.nativeElement;
+    fixture.detectChanges();
     expect(headComponent.querySelectorAll('a')[0].textContent).toContain('Products');
   }) 
 
