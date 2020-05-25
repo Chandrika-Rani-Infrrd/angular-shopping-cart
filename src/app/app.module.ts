@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,8 @@ import { ProductListComponent } from './productlist/product-list.component';
 import { OverAllTotalPipe } from './mycart/over-all-total.pipe';
 import { MyCartService } from './mycart/my-cart.service';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { AuthService } from './auth.service';
+import { ExitMycartGuard } from './exit-mycart.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [MyCartService],
+  providers: [MyCartService,AuthGuard,AuthService,ExitMycartGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

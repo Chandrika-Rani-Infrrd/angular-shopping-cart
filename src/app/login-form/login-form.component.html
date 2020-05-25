@@ -35,7 +35,7 @@
     </div>
   </div>
   <a [routerLink]="['/product-list']">
-    <button [disabled]="!loginForm.valid" class="login-btn">
+    <button [disabled]="!loginForm.valid" class="login-btn" (click)="submit()">
       Login
     </button>
   </a>

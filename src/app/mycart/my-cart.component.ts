@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MyCartService } from './my-cart.service';
 
@@ -44,5 +44,14 @@ export class MyCartComponent implements OnInit {
 
   onClick() {
     this.router.navigate(['/product-list']);
+  }
+
+  canDeactivate() {
+    const confirmResult = confirm('Are you sure you want to leave this page ? ');
+     if (confirmResult === true) {
+    return true;
+    } else {
+    return false;
+    }
   }
 }
