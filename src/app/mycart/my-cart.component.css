@@ -17,6 +17,7 @@
 }
 .quantity button {
   background-color: rgb(136, 146, 238);
+  border-style: none;
 }
 .total {
   font-size: 20px;
@@ -33,6 +34,8 @@
   font-weight: bold;
   border-radius: 10%;
   margin: 8px;
+  border-style: none;
+  background-color: silver;
 }
 
 .edit-model {
@@ -58,4 +61,11 @@
 .form-group {
   padding: 10px;
   margin: 10px;
+}
+.form-control {
+  border: 2px solid lightgray;
+  border-radius: 5%;
+  padding: 8px;
+  font-size: 15px;
+  outline: none;
 }

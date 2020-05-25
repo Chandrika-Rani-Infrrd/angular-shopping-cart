@@ -22,6 +22,6 @@ export class ExitMycartGuard implements CanDeactivate<MyCartComponent> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return component.canDeactivate ? component.canDeactivate() : true;
+    return component.CanDeactivate ? component.CanDeactivate() : true;
   }
 }

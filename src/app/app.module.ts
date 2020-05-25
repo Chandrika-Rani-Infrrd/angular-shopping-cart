@@ -35,7 +35,12 @@ import { ExitMycartGuard } from './exit-mycart.guard';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [MyCartService,AuthGuard,AuthService,ExitMycartGuard],
+  providers: [
+    MyCartService,
+    AuthGuard,
+    AuthService,
+    ExitMycartGuard
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

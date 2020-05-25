@@ -3,7 +3,6 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { By } from '@angular/platform-browser';
 
 import { HeaderComponent } from 'src/shared/header/header.component';
 import { ProductListComponent } from './productlist/product-list.component';

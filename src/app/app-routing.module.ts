@@ -8,10 +8,19 @@ import { ProductListComponent } from './productlist/product-list.component';
 import { ExitMycartGuard } from './exit-mycart.guard';
 
 export const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:"full"},
-  { path: 'login', component:LoginFormComponent },
-  { path: 'product-list', component: ProductListComponent,canActivate:[AuthGuard] },
-  { path: 'mycart', component: MyCartComponent,canActivate:[AuthGuard],canDeactivate:[ExitMycartGuard]}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginFormComponent },
+  {
+    path: 'product-list',
+    component: ProductListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'mycart',
+    component: MyCartComponent,
+    canActivate: [AuthGuard],
+    canDeactivate: [ExitMycartGuard],
+  },
 ];
 
 @NgModule({
