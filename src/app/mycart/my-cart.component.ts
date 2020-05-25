@@ -9,7 +9,7 @@ import { MyCartService } from './my-cart.service';
 })
 export class MyCartComponent implements OnInit {
   cartItem = [];
-  showEdit=false;
+  showEdit = false;
   productToUpdate;
 
   constructor(private router: Router, private mycartService: MyCartService) {}
@@ -33,16 +33,27 @@ export class MyCartComponent implements OnInit {
     this.mycartService.decrementQuantity(this.cartItem);
   }
 
-  editModel(item){
-    this.productToUpdate=item;
-    this.showEdit=!this.showEdit;
+  editModel(item) {
+    this.productToUpdate = item;
+    this.showEdit = !this.showEdit;
   }
 
-  updatedName(data){
+  updatedName(data) {
     this.mycartService.updateMyCart(this.cartItem);
   }
 
   onClick() {
     this.router.navigate(['/product-list']);
   }
+  CanDeactivate(){
+    const confirmResult = confirm(
+      'Are you sure you want to leave this page ? '
+    );
+    if ( confirmResult === true) {
+      return true;
+    } else {
+      return false;
+    } 
+  }
+
 }
